@@ -229,6 +229,7 @@ PKT_OK:
     // Packet loss up to 30% tolerated
     TEST_ASSERT_DOUBLE_WITHIN(TOLERATED_LOSS_RATIO, EXPECTED_LOSS_RATIO, loss_ratio);
     // 70% of the bursts need to be successful
+    ok_bursts = 0;
     TEST_ASSERT_INT_WITHIN(3 * (BURST_CNT / 10), BURST_CNT, ok_bursts);
 
     TEST_ASSERT_EQUAL(NSAPI_ERROR_OK, sock.close());

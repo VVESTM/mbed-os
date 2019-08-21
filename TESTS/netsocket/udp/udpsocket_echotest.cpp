@@ -101,6 +101,7 @@ void UDPSOCKET_ECHOTEST()
 
     // Packet loss up to 30% tolerated
     if (packets_sent > 0) {
+        packets_recv = 0;
         double loss_ratio = 1 - ((double)packets_recv / (double)packets_sent);
         printf("Packets sent: %d, packets received %d, loss ratio %.2lf\r\n", packets_sent, packets_recv, loss_ratio);
         TEST_ASSERT_DOUBLE_WITHIN(TOLERATED_LOSS_RATIO, EXPECTED_LOSS_RATIO, loss_ratio);
