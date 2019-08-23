@@ -216,6 +216,10 @@ void test_isr_stack_in_range(void)
     uint32_t msp = __get_MSP();
     bool result = inrange(msp, mbed_stack_isr_start + mbed_stack_isr_size - 0x400, 0x400);
 
+    printf("*  VVE : \n");
+    printf("*    msp ................ = %x\n", msp);
+    printf("*    mbed_stack_isr_start = %x\n", mbed_stack_isr_start);
+    printf("*    mbed_stack_isr_size  = %x\n", mbed_stack_isr_size);
     TEST_ASSERT_TRUE_MESSAGE(result, "Interrupt stack in wrong location");
 }
 
